@@ -1,0 +1,110 @@
+---
+export interface Props {
+	icon: string;
+	href: string;
+}
+
+const { href, title, icon } = Astro.props;
+---
+
+<li class="links">
+	<a href={href}>
+		<span class={icon}></span>
+	</a>
+</li>
+<style>
+	.link-card {
+		list-style: none;
+		display: flex;
+		padding: 0.25rem;
+		background-color: white;
+		background-image: none;
+		background-size: 400%;
+		border-radius: 0.6rem;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+			0 2px 4px -2px rgba(0, 0, 0, 0.1);
+	}
+
+	.link-card > a {
+		width: 100%;
+		text-decoration: none;
+		line-height: 1.4;
+		padding: 1rem 1.3rem;
+		border-radius: 0.35rem;
+		color: #111;
+		background-color: white;
+		opacity: 0.8;
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.25rem;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	p {
+		margin-top: 0.5rem;
+		margin-bottom: 0;
+		color: #444;
+	}
+	.link-card:is(:hover, :focus-within) {
+		background-position: 0;
+		background-image: var(--accent-gradient);
+	}
+	.link-card:is(:hover, :focus-within) h2 {
+		color: rgb(var(--accent));
+	}
+	.links {
+		list-style: none;
+		display: inline-block;
+		font-size: x-large;
+	}
+
+	@font-face {
+		font-family: "Line Awesome Brands";
+		font-style: normal;
+		font-weight: normal;
+		font-display: auto;
+		src: url("/fonts/la-brands-400.eot");
+		src: url("/fonts/la-brands-400.eot?#iefix") format("embedded-opentype"),
+			url("/fonts/la-brands-400.woff2") format("woff2"),
+			url("/fonts/la-brands-400.woff") format("woff"),
+			url("/fonts/la-brands-400.ttf") format("truetype"),
+			url("/fonts/la-brands-400.svg#lineawesome") format("svg");
+	}
+	.twitter:before {
+		content: "\f099";
+	}
+	.twitter {
+		font-family: "Line Awesome Brands";
+		font-weight: 400;
+	}
+	.facebook:before {
+		content: "\f09a";
+	}
+	.facebook {
+		font-family: "Line Awesome Brands";
+		font-weight: 400;
+	}
+	.github:before {
+		content: "\f09b";
+	}
+	.github {
+		font-family: "Line Awesome Brands";
+		font-weight: 400;
+	}
+	.medium:before {
+		content: "\f23a";
+	}
+	.medium {
+		font-family: "Line Awesome Brands";
+		font-weight: 400;
+	}
+	.youtube:before {
+		content: "\f167";
+	}
+	.youtube {
+		font-family: "Line Awesome Brands";
+		font-weight: 400;
+	}
+</style>

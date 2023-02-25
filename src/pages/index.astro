@@ -1,37 +1,83 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Sns from "../components/Sns.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="catatsuy's Website">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
+		<h1>catatsuy's Website</h1>
+		<h2>Profile</h2>
+		<h3>Name</h3>
+		<p>Tatsuya Kaneko （金子達哉）</p>
+		<h3>SNS</h3>
+		<ul role="list" class="sns">
+			<Sns
+				href="https://twitter.com/catatsuy"
+				icon="twitter"
 			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
+			<Sns
+				href="https://facebook.com/catatsuy"
+				icon="facebook"
 			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
+			<Sns
+				href="https://github.com/catatsuy"
+				icon="github"
 			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
+			<Sns
+				href="https://catatsuy.medium.com/"
+				icon="medium"
+			/>
+			<Sns
+				href="https://www.youtube.com/@catatsuy"
+				icon="youtube"
 			/>
 		</ul>
+		<ul>
+			<li>
+				<a href="https://zenn.dev/catatsuy">catatsuy | Zenn</a>
+			</li>
+			<li>
+				<a href="https://note.com/catatsuy">catatsuy | note</a>
+			</li>
+		</ul>
+		<h4>Other Links (old blog)</h4>
+		<ul>
+			<li>
+				<a href="https://catatsuy.hateblo.jp">catatsuyとは</a>
+			</li>
+			<li>
+				<a href="https://blog.catatsuy.org">catatsuy's Blog</a>
+			</li>
+			<li>
+				<a href="https://qiita.com/catatsuy">catatsuy - Qiita</a>
+			</li>
+		</ul>
+		<h3>Resume</h3>
+		<ul>
+			<li>
+				<a href="https://github.com/catatsuy/resume">Resume (Japanese version only)</a>
+			</li>
+		</ul>
+		<h3>Jobs</h3>
+		<ul>
+			<li>
+				CTO at <a href="https://prtimes.co.jp/">PR TIMES Inc.</a> <span>2021/04 -</span>
+			</li>
+			<li>
+				Software Engineer at <a href="https://about.mercari.com/">Mercari, Inc.</a> <span>2018/06 - 2021/03</span>
+			</li>
+			<li>
+				Software Engineer at <a href="https://www.pixiv.co.jp/">pixiv Inc.</a> <span>2013/08 - 2018/06</span>
+			</li>
+		</ul>
+		<h3>Publications</h3>
+		<h4>Books</h4>
+		<a target="_blank" href="https://amzn.to/3NpUMtx">
+			<img src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=4297128462&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=catatsuy-22&amp;language=ja_JP">
+		</a>
+		<a target="_blank" href="https://amzn.to/2GckB2B">
+			<img src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;MarketPlace=JP&amp;ASIN=4061385682&amp;ServiceVersion=20070822&amp;ID=AsinImage&amp;WS=1&amp;Format=_SL250_&amp;tag=catatsuy-22">
+		</a>
 	</main>
 </Layout>
 
@@ -46,36 +92,12 @@ import Card from '../components/Card.astro';
 		font-weight: 800;
 		margin: 0;
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
+	.sns {
 		padding: 0;
+	}
+	.sns li {
+		list-style: none;
+    display: inline-block;
+    font-size: x-large;
 	}
 </style>
