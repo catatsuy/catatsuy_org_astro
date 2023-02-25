@@ -1,31 +1,29 @@
 ---
 export interface Props {
-	href: string;
-	name: string;
-	repo: string;
+  href: string;
+  name: string;
+  repo: string;
 }
 
 const { href, name, repo } = Astro.props;
 ---
 
 <footer>
-	<div class="copyright">
-		COPYRIGHT © 2010 <a href={href}>{name}</a> ALL RIGHTS RESERVED.
-	</div>
-	<div class="source">
-		The source code of this site is on <a
-			target="_blank"
-			href={repo}>GitHub</a
-		>.
-	</div>
+  <div class="copyright">
+    COPYRIGHT © 2010 <a href={href}>{name}</a> ALL RIGHTS RESERVED.
+  </div>
+  <div class="source">
+    The source code of this site is on <a target="_blank" href={repo}>GitHub</a
+    >.
+  </div>
 </footer>
 <style>
-	footer {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-		text-align: center;
-		line-height: 150%;
-		border-top: 1px solid #e5e5e5;
-	}
+  footer {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+    text-align: center;
+    line-height: 150%;
+    border-top: 1px solid #e5e5e5;
+  }
 </style>
