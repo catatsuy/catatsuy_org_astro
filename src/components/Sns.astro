@@ -2,13 +2,14 @@
 export interface Props {
   icon: string;
   href: string;
+  sns: string;
 }
 
-const { href, icon } = Astro.props;
+const { href, icon, sns } = Astro.props;
 ---
 
 <li class="links">
-  <a href={href}>
+  <a href={href} target="_blank" aria-label={`Visit catatsuy's ${sns}`}>
     <span class={`fa-brands ${icon}`}></span>
   </a>
 </li>

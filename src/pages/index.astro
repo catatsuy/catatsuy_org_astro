@@ -9,74 +9,100 @@ import Sns from "../components/Sns.astro";
     <h2>Profile</h2>
     <h3>Name</h3>
     <p>Tatsuya Kaneko （金子達哉）</p>
-    <h3>SNS</h3>
+    <h3>Social Media</h3>
     <ul role="list" class="sns">
-      <Sns href="https://twitter.com/catatsuy" icon="fa-x-twitter" />
-      <Sns href="https://facebook.com/catatsuy" icon="fa-facebook" />
-      <Sns href="https://github.com/catatsuy" icon="fa-github" />
-      <Sns href="https://www.youtube.com/@catatsuy" icon="fa-youtube" />
+      <Sns href="https://x.com/catatsuy" icon="fa-x-twitter" sns="X" />
+      <Sns
+        href="https://facebook.com/catatsuy"
+        icon="fa-facebook"
+        sns="Facebook"
+      />
+      <Sns href="https://github.com/catatsuy" icon="fa-github" sns="GitHub" />
+      <Sns
+        href="https://www.youtube.com/@catatsuy"
+        icon="fa-youtube"
+        sns="YouTube"
+      />
     </ul>
+    <h3>Other Platforms</h3>
     <ul>
       <li>
-        <a href="https://bsky.app/profile/catatsuy.org">catatsuy - Bluesky</a>
-      </li>
-      <li>
-        <a href="https://zenn.dev/catatsuy">catatsuy | Zenn</a>
-      </li>
-      <li>
-        <a href="https://note.com/catatsuy">catatsuy | note</a>
-      </li>
-    </ul>
-    <h4>Other Links (old blog)</h4>
-    <ul>
-      <li>
-        <a href="https://catatsuy.medium.com/">Medium</a>
-      </li>
-      <li>
-        <a href="https://qiita.com/catatsuy">catatsuy - Qiita</a>
-      </li>
-      <li>
-        <a href="https://catatsuy.hateblo.jp">catatsuyとは</a>
-      </li>
-      <li>
-        <a href="https://blog.catatsuy.org">catatsuy's Blog</a>
-      </li>
-    </ul>
-    <h3>Resume</h3>
-    <ul>
-      <li>
-        <a href="https://github.com/catatsuy/resume"
-          >Resume (Japanese version only)</a
+        <a href="https://bsky.app/profile/catatsuy.org" target="_blank"
+          >catatsuy - Bluesky</a
         >
       </li>
+      <li>
+        <a href="https://zenn.dev/catatsuy" target="_blank">catatsuy | Zenn</a>
+      </li>
+      <li>
+        <a href="https://note.com/catatsuy" target="_blank">catatsuy | note</a>
+      </li>
     </ul>
-    <h3>Jobs</h3>
+    <h4>Other Links</h4>
     <ul>
       <li>
-        CTO at <a href="https://prtimes.co.jp/">PR TIMES Corporation.</a>
+        <a href="https://catatsuy.medium.com/" target="_blank">Medium</a>
+      </li>
+      <li>
+        <a href="https://qiita.com/catatsuy" target="_blank">catatsuy - Qiita</a
+        >
+      </li>
+      <li>
+        <a href="https://catatsuy.hateblo.jp" target="_blank">catatsuyとは</a>
+      </li>
+      <li>
+        <a href="https://blog.catatsuy.org" target="_blank">catatsuy's Blog</a>
+      </li>
+    </ul>
+    <h2>Resume</h2>
+    <ul>
+      <li>
+        <a href="https://github.com/catatsuy/resume" target="_blank">
+          Resume (Japanese version only)
+        </a>
+      </li>
+    </ul>
+    <h2>Education</h2>
+    <ul>
+      <li>
+        Bachelor of Engineering in Computer Science from
+        <a href="https://www.titech.ac.jp/" target="_blank">
+          Tokyo Institute of Technology</a
+        >, Department of Engineering, graduated in 2023/09
+      </li>
+    </ul>
+    <h2>Professional Experience</h2>
+    <ul>
+      <li>
+        CTO at <a href="https://prtimes.co.jp/" target="_blank">
+          PR TIMES Corporation.
+        </a>
         <span>2021/04 -</span>
       </li>
       <li>
-        Software Engineer at <a href="https://about.mercari.com/"
-          >Mercari, Inc.</a
+        Software Engineer at <a
+          href="https://about.mercari.com/"
+          target="_blank">Mercari, Inc.</a
         >
         <span>2018/06 - 2021/03</span>
       </li>
       <li>
-        Software Engineer at <a href="https://www.pixiv.co.jp/">pixiv Inc.</a>
+        Software Engineer at <a href="https://www.pixiv.co.jp/" target="_blank"
+          >pixiv Inc.</a
+        >
         <span>2013/08 - 2018/06</span>
       </li>
     </ul>
-    <h3>Publications</h3>
-    <h4>Books</h4>
+    <h2>Publications</h2>
+    <h3>Books</h3>
     <a target="_blank" href="https://amzn.to/3NpUMtx">
-      <img src="/img/isucon.jpg" class="book" />
+      <img src="/img/isucon.jpg" class="book" alt="ISUCON" />
     </a>
     <a target="_blank" href="https://amzn.to/3r5Go4c">
-      <img src="/img/sd.jpg" class="book" />
+      <img src="/img/sd.jpg" class="book" alt="Software Design 2023/10" />
     </a>
     <a target="_blank" href="https://amzn.to/2GckB2B">
-      <img src="/img/pixiv.png" class="book" />
+      <img src="/img/pixiv.png" class="book" alt="pixiv" />
     </a>
   </main>
 </Layout>
