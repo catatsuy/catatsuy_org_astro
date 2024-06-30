@@ -1,6 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Sns from "../components/Sns.astro";
+import { Image } from "astro:assets";
+import localIsuconBookImage from "../../public/img/isucon.jpg";
+import localSoftwareDesignBookImage from "../../public/img/sd.jpg";
+import localPixivBookImage from "../../public/img/pixiv.png";
 ---
 
 <Layout title="catatsuy's Website">
@@ -96,13 +100,34 @@ import Sns from "../components/Sns.astro";
     <h2>Publications</h2>
     <h3>Books</h3>
     <a target="_blank" href="https://amzn.to/3NpUMtx">
-      <img src="/img/isucon.jpg" class="book" alt="ISUCON" />
+      <Image
+        src={localIsuconBookImage}
+        format="avif"
+        quality="high"
+        height="200"
+        class="book"
+        alt="ISUCON"
+      />
     </a>
     <a target="_blank" href="https://amzn.to/3r5Go4c">
-      <img src="/img/sd.jpg" class="book" alt="Software Design 2023/10" />
+      <Image
+        src={localSoftwareDesignBookImage}
+        format="avif"
+        quality="high"
+        height="200"
+        class="book"
+        alt="Software Design 2023/10"
+      />
     </a>
     <a target="_blank" href="https://amzn.to/2GckB2B">
-      <img src="/img/pixiv.png" class="book" alt="pixiv" />
+      <Image
+        src={localPixivBookImage}
+        format="avif"
+        quality="high"
+        height="200"
+        class="book"
+        alt="pixiv"
+      />
     </a>
   </main>
 </Layout>
