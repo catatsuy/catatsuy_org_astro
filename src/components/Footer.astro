@@ -6,7 +6,7 @@ export interface Props {
 }
 
 const { href, name, repo } = Astro.props;
-const currentYear = new Date().getFullYear();
+const currentYear: number = new Date().getFullYear();
 ---
 
 <footer>
