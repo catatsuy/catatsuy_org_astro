@@ -6,11 +6,12 @@ export interface Props {
 }
 
 const { href, name, repo } = Astro.props;
+const currentYear = new Date().getFullYear();
 ---
 
 <footer>
   <div class="copyright">
-    COPYRIGHT © 2010 <a href={href}>{name}</a> ALL RIGHTS RESERVED.
+    COPYRIGHT © 2010-{currentYear} <a href={href}>{name}</a> ALL RIGHTS RESERVED.
   </div>
   <div class="source">
     The source code of this site is on <a target="_blank" href={repo}>GitHub</a
