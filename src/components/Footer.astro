@@ -11,20 +11,32 @@ const currentYear: number = new Date().getFullYear();
 
 <footer>
   <div class="copyright">
-    COPYRIGHT © 2010-{currentYear} <a href={href}>{name}</a> ALL RIGHTS RESERVED.
+    Copyright © 2010-{currentYear}
+    <a href={href}>{name}</a>.
   </div>
   <div class="source">
-    The source code of this site is on <a target="_blank" href={repo}>GitHub</a
+    Built with Astro. Source on <a target="_blank" rel="noreferrer" href={repo}
+      >GitHub</a
     >.
   </div>
 </footer>
 <style>
   footer {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
-    text-align: center;
-    line-height: 150%;
-    border-top: 1px solid #e5e5e5;
+    width: min(720px, calc(100% - 2rem));
+    margin: 3rem auto 0;
+    padding: 1.5rem 0 2.5rem;
+    text-align: left;
+    line-height: 1.7;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  a {
+    color: var(--text);
+  }
+
+  .copyright {
+    letter-spacing: 0.01em;
   }
 </style>

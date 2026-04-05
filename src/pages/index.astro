@@ -5,183 +5,486 @@ import { Image } from "astro:assets";
 import localIsuconBookImage from "../../public/img/isucon.jpg";
 import localSoftwareDesignBookImage from "../../public/img/sd.jpg";
 import localPixivBookImage from "../../public/img/pixiv.png";
+
+const socialLinks = [
+  {
+    href: "https://x.com/catatsuy",
+    icon: "fa-brands fa-x-twitter",
+    sns: "X",
+    handle: "@catatsuy",
+  },
+  {
+    href: "https://github.com/catatsuy",
+    icon: "fa-brands fa-github",
+    sns: "GitHub",
+    handle: "github.com/catatsuy",
+  },
+  {
+    href: "https://www.linkedin.com/in/catatsuy",
+    icon: "fa-brands fa-linkedin",
+    sns: "LinkedIn",
+    handle: "Professional profile",
+  },
+  {
+    href: "https://www.youtube.com/@catatsuy",
+    icon: "fa-brands fa-youtube",
+    sns: "YouTube",
+    handle: "@catatsuy",
+  },
+  {
+    href: "https://listen.style/p/weekend_oss",
+    icon: "fa-solid fa-podcast",
+    sns: "Podcast",
+    handle: "Weekend OSS",
+  },
+  {
+    href: "https://facebook.com/catatsuy",
+    icon: "fa-brands fa-facebook",
+    sns: "Facebook",
+    handle: "catatsuy",
+  },
+];
+
+const currentLinks = [
+  {
+    title: "Resume",
+    description: "Detailed career history in Japanese.",
+    href: "https://github.com/catatsuy/resume",
+  },
+  {
+    title: "Zenn",
+    description: "Technical writing and notes.",
+    href: "https://zenn.dev/catatsuy",
+  },
+  {
+    title: "DEV",
+    description: "Posts for a broader audience.",
+    href: "https://dev.to/catatsuy",
+  },
+  {
+    title: "note",
+    description: "Japanese essays and updates.",
+    href: "https://note.com/catatsuy",
+  },
+  {
+    title: "Bluesky",
+    description: "Short updates and links.",
+    href: "https://bsky.app/profile/catatsuy.org",
+  },
+  {
+    title: "mixi2",
+    description: "Japanese social presence.",
+    href: "https://mixi.social/@catatsuy",
+  },
+];
+
+const archivedLinks = [
+  {
+    title: "Medium",
+    href: "https://catatsuy.medium.com/",
+  },
+  {
+    title: "Qiita",
+    href: "https://qiita.com/catatsuy",
+  },
+  {
+    title: "catatsuyとは",
+    href: "https://catatsuy.hateblo.jp",
+  },
+  {
+    title: "catatsuy's Blog",
+    href: "https://blog.catatsuy.org",
+  },
+];
+
+const experience = [
+  {
+    period: "2021/04 -",
+    role: "CTO",
+    company: "PR TIMES Corporation",
+    href: "https://prtimes.co.jp/",
+  },
+  {
+    period: "2018/06 - 2021/03",
+    role: "Software Engineer",
+    company: "Mercari, Inc.",
+    href: "https://about.mercari.com/",
+  },
+  {
+    period: "2013/08 - 2018/06",
+    role: "Software Engineer",
+    company: "pixiv Inc.",
+    href: "https://www.pixiv.co.jp/",
+  },
+];
+
+const publications = [
+  {
+    href: "https://amzn.to/3NpUMtx",
+    image: localIsuconBookImage,
+    alt: "ISUCON",
+    title: "ISUCON",
+  },
+  {
+    href: "https://amzn.to/3r5Go4c",
+    image: localSoftwareDesignBookImage,
+    alt: "Software Design 2023/10",
+    title: "Software Design 2023/10",
+  },
+  {
+    href: "https://amzn.to/2GckB2B",
+    image: localPixivBookImage,
+    alt: "pixiv",
+    title: "pixiv",
+  },
+];
 ---
 
-<Layout title="catatsuy's Website">
-  <main>
-    <h1>catatsuy's Website</h1>
-    <h2>Profile</h2>
-    <h3>Name</h3>
-    <p>Tatsuya Kaneko （金子達哉）</p>
-    <h3>Social Media</h3>
-    <ul role="list" class="sns">
-      <Sns
-        href="https://x.com/catatsuy"
-        icon="fa-brands fa-x-twitter"
-        sns="X"
-      />
-      <Sns
-        href="https://facebook.com/catatsuy"
-        icon="fa-brands fa-facebook"
-        sns="Facebook"
-      />
-      <Sns
-        href="https://github.com/catatsuy"
-        icon="fa-brands fa-github"
-        sns="GitHub"
-      />
-      <Sns
-        href="https://www.youtube.com/@catatsuy"
-        icon="fa-brands fa-youtube"
-        sns="YouTube"
-      />
-      <Sns
-        href="https://www.linkedin.com/in/catatsuy"
-        icon="fa-brands fa-linkedin"
-        sns="LinkedIn"
-      />
-      <Sns
-        href="https://listen.style/p/weekend_oss"
-        icon="fa-solid fa-podcast"
-        sns="Podcast"
-      />
-    </ul>
-    <h3>Other Platforms</h3>
-    <ul>
-      <li>
-        <a href="https://dev.to/catatsuy" target="_blank">catatsuy | DEV</a>
-      </li>
-      <li>
-        <a href="https://zenn.dev/catatsuy" target="_blank">catatsuy | Zenn</a>
-      </li>
-      <li>
-        <a href="https://note.com/catatsuy" target="_blank">catatsuy | note</a>
-      </li>
-      <li>
-        <a href="https://mixi.social/@catatsuy" target="_blank">catatsuy | mixi2</a>
-      </li>
-      <li>
-        <a href="https://bsky.app/profile/catatsuy.org" target="_blank"
-          >catatsuy | Bluesky</a
-        >
-      </li>
-    </ul>
-    <h4>Other Links</h4>
-    <ul>
-      <li>
-        <a href="https://catatsuy.medium.com/" target="_blank">Medium</a>
-      </li>
-      <li>
-        <a href="https://qiita.com/catatsuy" target="_blank">catatsuy - Qiita</a
-        >
-      </li>
-      <li>
-        <a href="https://catatsuy.hateblo.jp" target="_blank">catatsuyとは</a>
-      </li>
-      <li>
-        <a href="https://blog.catatsuy.org" target="_blank">catatsuy's Blog</a>
-      </li>
-    </ul>
-    <h2>Resume</h2>
-    <ul>
-      <li>
-        <a href="https://github.com/catatsuy/resume" target="_blank">
-          Resume (Japanese version only)
-        </a>
-      </li>
-    </ul>
-    <h2>Education</h2>
-    <ul>
-      <li>
-        Bachelor of Engineering in Computer Science from
-        <a href="https://www.titech.ac.jp/" target="_blank">
-          Tokyo Institute of Technology
-        </a>
-        (now
-        <a href="https://www.isct.ac.jp/" target="_blank">
-          Institute of Science Tokyo</a
-        >), Faculty of Engineering, graduated in 2013/09
-      </li>
-    </ul>
-    <h2>Professional Experience</h2>
-    <ul>
-      <li>
-        CTO at <a href="https://prtimes.co.jp/" target="_blank">
-          PR TIMES Corporation.
-        </a>
-        <span>2021/04 -</span>
-      </li>
-      <li>
-        Software Engineer at <a
-          href="https://about.mercari.com/"
-          target="_blank">Mercari, Inc.</a
-        >
-        <span>2018/06 - 2021/03</span>
-      </li>
-      <li>
-        Software Engineer at <a href="https://www.pixiv.co.jp/" target="_blank"
-          >pixiv Inc.</a
-        >
-        <span>2013/08 - 2018/06</span>
-      </li>
-    </ul>
-    <h2>Publications</h2>
-    <h3>Books</h3>
-    <a target="_blank" href="https://amzn.to/3NpUMtx">
-      <Image
-        src={localIsuconBookImage}
-        format="avif"
-        quality="high"
-        height="200"
-        class="book"
-        alt="ISUCON"
-      />
-    </a>
-    <a target="_blank" href="https://amzn.to/3r5Go4c">
-      <Image
-        src={localSoftwareDesignBookImage}
-        format="avif"
-        quality="high"
-        height="200"
-        class="book"
-        alt="Software Design 2023/10"
-      />
-    </a>
-    <a target="_blank" href="https://amzn.to/2GckB2B">
-      <Image
-        src={localPixivBookImage}
-        format="avif"
-        quality="high"
-        height="200"
-        class="book"
-        alt="pixiv"
-      />
-    </a>
+<Layout
+  title="catatsuy | Tatsuya Kaneko"
+  description="Personal website of Tatsuya Kaneko (catatsuy), CTO at PR TIMES."
+>
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">Tatsuya Kaneko / 金子達哉</p>
+      <h1>catatsuy</h1>
+      <p class="lead">
+        CTO at PR TIMES. Software engineer focused on web systems, operations,
+        and performance.
+      </p>
+    </header>
+
+    <section class="section">
+      <h2>Social Media</h2>
+      <div class="section-body">
+        <ul class="social-list" role="list">
+          {
+            socialLinks.map((link) => (
+              <Sns
+                href={link.href}
+                icon={link.icon}
+                sns={link.sns}
+                handle={link.handle}
+              />
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Publications</h2>
+      <div class="section-body">
+        <div class="books">
+          {
+            publications.map((book) => (
+              <a class="book" href={book.href} target="_blank" rel="noreferrer">
+                <Image
+                  src={book.image}
+                  format="avif"
+                  quality="high"
+                  width={220}
+                  alt={book.alt}
+                />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Links</h2>
+      <div class="section-body">
+        <ul class="link-list" role="list">
+          {
+            currentLinks.map((item) => (
+              <li>
+                <a href={item.href} target="_blank" rel="noreferrer">
+                  <span class="link-title">{item.title}</span>
+                  <span class="link-description">{item.description}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Professional Experience</h2>
+      <div class="section-body">
+        <ul class="timeline" role="list">
+          {
+            experience.map((item) => (
+              <li>
+                <span class="period">{item.period}</span>
+                <div>
+                  <strong>{item.role}</strong>
+                  <a href={item.href} target="_blank" rel="noreferrer">
+                    {item.company}
+                  </a>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Profile</h2>
+      <div class="section-body">
+        <p>
+          Bachelor of Engineering in Computer Science from
+          <a href="https://www.titech.ac.jp/" target="_blank" rel="noreferrer">
+            Tokyo Institute of Technology
+          </a>
+          (now
+          <a href="https://www.isct.ac.jp/" target="_blank" rel="noreferrer">
+            Institute of Science Tokyo
+          </a>
+          ), graduated in 2013/09.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Other Links</h2>
+      <div class="section-body">
+        <p class="note">These are archived or no longer actively updated.</p>
+        <ul class="archive-list" role="list">
+          {
+            archivedLinks.map((item) => (
+              <li>
+                <a href={item.href} target="_blank" rel="noreferrer">
+                  <span>{item.title}</span>
+                  <span class="status">Archived</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
-  main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
+  .page {
+    width: min(720px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 3rem 0 1rem;
   }
+
+  .intro {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+
   h1 {
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: clamp(2.6rem, 7vw, 4rem);
+    font-weight: 700;
+  }
+
+  .lead {
+    max-width: 38rem;
+    margin: 1rem 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .section {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section:last-child {
+    border-bottom: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-body {
+    color: var(--text);
+  }
+
+  .section-body p {
+    margin: 0;
+    line-height: 1.9;
+  }
+
+  .link-list,
+  .archive-list,
+  .timeline,
+  .social-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
   }
-  .sns {
-    padding: 0;
+
+  .link-list li,
+  .archive-list li,
+  .timeline li {
+    border-top: 1px solid var(--line);
   }
-  .sns li {
-    list-style: none;
-    display: inline-block;
-    font-size: x-large;
+
+  .link-list li:first-child,
+  .archive-list li:first-child,
+  .timeline li:first-child {
+    border-top: 0;
   }
+
+  .link-list a,
+  .archive-list a {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .link-title {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .link-description {
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .note {
+    margin-bottom: 0.75rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .status {
+    flex-shrink: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: 1rem;
+    padding: 0.9rem 0;
+  }
+
+  .period {
+    color: var(--muted);
+  }
+
+  .timeline strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+  }
+
+  .books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: end;
+    justify-content: flex-start;
+  }
+
   .book {
-    height: 200px;
-    margin-left: 5px;
-    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 150px;
+    flex: 0 0 150px;
+  }
+
+  .book img {
+    width: auto;
+    max-width: 100%;
+    height: 220px;
+    border-radius: 3px;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  @media (max-width: 720px) {
+    .page {
+      width: min(100%, calc(100% - 1.25rem));
+      padding-top: 2rem;
+    }
+
+    .intro {
+      padding-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+    }
+
+    .lead {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .section {
+      padding: 1.4rem 0;
+    }
+
+    h2 {
+      margin-bottom: 0.85rem;
+      font-size: 1.3rem;
+    }
+
+    .link-list a,
+    .archive-list a {
+      display: block;
+      padding: 0.9rem 0;
+    }
+
+    .link-description,
+    .status {
+      display: block;
+      margin-top: 0.3rem;
+      text-align: left;
+    }
+
+    .timeline li {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+      padding: 0.85rem 0;
+    }
+
+    .books {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 8.75rem;
+      gap: 0.2rem;
+      overflow-x: auto;
+      padding-bottom: 0.1rem;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .book {
+      width: auto;
+      flex: initial;
+      scroll-snap-align: start;
+    }
+
+    .book img {
+      width: 100%;
+      height: 180px;
+    }
   }
 </style>
