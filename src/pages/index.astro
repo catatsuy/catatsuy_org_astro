@@ -102,6 +102,41 @@ const archivedLinks = [
   },
 ];
 
+const selectedWorks = [
+  {
+    name: "private-isu",
+    category: "Performance Training",
+    description:
+      "A hands-on web application performance tuning environment for learning how to find and remove bottlenecks.",
+    href: "https://github.com/catatsuy/private-isu",
+    language: "Go / Ruby / PHP / TypeScript / Python",
+  },
+  {
+    name: "kekkai",
+    category: "Security / Operations",
+    description:
+      "A file integrity monitoring tool that detects tampering by comparing content hashes stored in S3.",
+    href: "https://github.com/catatsuy/kekkai",
+    language: "Go",
+  },
+  {
+    name: "purl",
+    category: "Text Processing",
+    description:
+      "A Go tool for streamlining text processing in command-line workflows.",
+    href: "https://github.com/catatsuy/purl",
+    language: "Go",
+  },
+  {
+    name: "notify_slack",
+    category: "CLI Tooling",
+    description:
+      "A small command-line tool for posting messages to Slack from scripts and operational jobs.",
+    href: "https://github.com/catatsuy/notify_slack",
+    language: "Go",
+  },
+];
+
 const experience = [
   {
     period: "2021/04 -",
@@ -154,12 +189,12 @@ const publications = [
       <p class="eyebrow">Tatsuya Kaneko / 金子達哉</p>
       <h1>catatsuy</h1>
       <p class="lead">
-        CTO at PR TIMES. Software engineer focused on web systems, operations,
-        and performance.
+        CTO at PR TIMES. Software engineer working on web systems, performance,
+        operations, and the engineering practices behind them.
       </p>
     </header>
 
-    <section class="section">
+    <section class="section section-social">
       <h2>Social Media</h2>
       <div class="section-body">
         <ul class="social-list" role="list">
@@ -177,7 +212,27 @@ const publications = [
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-work">
+      <h2>Selected Work</h2>
+      <div class="section-body">
+        <ul class="work-list" role="list">
+          {
+            selectedWorks.map((work) => (
+              <li>
+                <a href={work.href} target="_blank" rel="noreferrer">
+                  <span class="work-category">{work.category}</span>
+                  <span class="work-name">{work.name}</span>
+                  <span class="work-description">{work.description}</span>
+                  <span class="work-language">{work.language}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-publications">
       <h2>Publications</h2>
       <div class="section-body">
         <div class="books">
@@ -198,7 +253,7 @@ const publications = [
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-links">
       <h2>Links</h2>
       <div class="section-body">
         <ul class="link-list" role="list">
@@ -216,7 +271,7 @@ const publications = [
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-experience">
       <h2>Professional Experience</h2>
       <div class="section-body">
         <ul class="timeline" role="list">
@@ -237,7 +292,7 @@ const publications = [
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-profile">
       <h2>Profile</h2>
       <div class="section-body">
         <p>
@@ -246,15 +301,14 @@ const publications = [
             Tokyo Institute of Technology
           </a>
           (now
-          <a href="https://www.isct.ac.jp/" target="_blank" rel="noreferrer">
-            Institute of Science Tokyo
-          </a>
-          ), graduated in 2013/09.
+          <a href="https://www.isct.ac.jp/" target="_blank" rel="noreferrer"
+            >Institute of Science Tokyo</a
+          >{"), graduated in 2013/09."}
         </p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-other">
       <h2>Other Links</h2>
       <div class="section-body">
         <p class="note">These are archived or no longer actively updated.</p>
@@ -277,12 +331,16 @@ const publications = [
 
 <style>
   .page {
-    width: min(720px, calc(100% - 2rem));
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+    column-gap: 2.5rem;
+    width: min(1040px, calc(100% - 2rem));
     margin: 0 auto;
     padding: 3rem 0 1rem;
   }
 
   .intro {
+    grid-column: 1 / -1;
     padding-bottom: 2.5rem;
     border-bottom: 1px solid var(--line);
   }
@@ -291,11 +349,11 @@ const publications = [
     margin: 0 0 0.75rem;
     color: var(--muted);
     font-size: 0.9rem;
-    letter-spacing: 0.04em;
+    letter-spacing: 0;
   }
 
   h1 {
-    font-size: clamp(2.6rem, 7vw, 4rem);
+    font-size: 4rem;
     font-weight: 700;
   }
 
@@ -308,8 +366,13 @@ const publications = [
   }
 
   .section {
-    padding: 2rem 0;
+    min-width: 0;
+    padding: 1.5rem 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .section-social {
+    grid-column: 1 / -1;
   }
 
   .section:last-child {
@@ -330,10 +393,17 @@ const publications = [
     line-height: 1.9;
   }
 
+  .social-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+
   .link-list,
   .archive-list,
   .timeline,
-  .social-list {
+  .social-list,
+  .work-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -369,6 +439,62 @@ const publications = [
     text-align: right;
   }
 
+  .work-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .work-list li {
+    min-width: 0;
+  }
+
+  .work-list a {
+    display: flex;
+    flex-direction: column;
+    min-height: 11rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+  }
+
+  .work-list a:is(:hover, :focus-visible) {
+    border-color: #cfcfc8;
+  }
+
+  .work-category {
+    color: var(--muted);
+    font-family: var(--mono-font);
+    font-size: 0.76rem;
+    line-height: 1.4;
+  }
+
+  .work-name {
+    margin-top: 0.45rem;
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .work-description {
+    margin-top: 0.65rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .work-language {
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--muted);
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
   .note {
     margin-bottom: 0.75rem;
     color: var(--muted);
@@ -401,7 +527,7 @@ const publications = [
   .books {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    gap: 1rem;
     align-items: end;
     justify-content: flex-start;
   }
@@ -410,14 +536,14 @@ const publications = [
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    width: 150px;
-    flex: 0 0 150px;
+    width: 118px;
+    flex: 0 0 118px;
   }
 
   .book img {
     width: auto;
     max-width: 100%;
-    height: 220px;
+    height: 174px;
     border-radius: 3px;
     object-fit: contain;
     object-position: center bottom;
@@ -425,6 +551,7 @@ const publications = [
 
   @media (max-width: 720px) {
     .page {
+      display: block;
       width: min(100%, calc(100% - 1.25rem));
       padding-top: 2rem;
     }
@@ -446,9 +573,26 @@ const publications = [
       padding: 1.4rem 0;
     }
 
+    .social-list {
+      display: block;
+    }
+
     h2 {
       margin-bottom: 0.85rem;
       font-size: 1.3rem;
+    }
+
+    .work-list {
+      grid-template-columns: 1fr;
+    }
+
+    .work-list {
+      gap: 0.75rem;
+    }
+
+    .work-list a {
+      min-height: 0;
+      padding: 0.9rem;
     }
 
     .link-list a,

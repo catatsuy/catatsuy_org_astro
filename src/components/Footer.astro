@@ -22,10 +22,12 @@ const currentYear: number = new Date().getFullYear();
 </footer>
 <style>
   footer {
-    width: min(720px, calc(100% - 2rem));
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(1040px, calc(100% - 2rem));
     margin: 3rem auto 0;
     padding: 1.5rem 0 2.5rem;
-    text-align: left;
     line-height: 1.7;
     border-top: 1px solid var(--line);
     color: var(--muted);
@@ -38,5 +40,23 @@ const currentYear: number = new Date().getFullYear();
 
   .copyright {
     letter-spacing: 0.01em;
+  }
+
+  .source {
+    text-align: right;
+  }
+
+  @media (max-width: 720px) {
+    footer {
+      display: block;
+      width: min(100%, calc(100% - 1.25rem));
+      margin-top: 2rem;
+      padding: 1.25rem 0 2rem;
+    }
+
+    .source {
+      margin-top: 0.25rem;
+      text-align: left;
+    }
   }
 </style>
