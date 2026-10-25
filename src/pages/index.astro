@@ -32,12 +32,6 @@ const socialLinks = [
     handle: "@catatsuy",
   },
   {
-    href: "https://yaoyorozu-oss.henteko07.com/",
-    icon: "fa-solid fa-podcast",
-    sns: "Podcast",
-    handle: "八百万のOSS",
-  },
-  {
     href: "https://facebook.com/catatsuy",
     icon: "fa-brands fa-facebook",
     sns: "Facebook",
@@ -167,19 +161,20 @@ const publications = [
     href: "https://www.amazon.co.jp/dp/B0HNJ2BG5G",
     image: localIsuconBookImage,
     alt: "改訂新版 達人が教えるWebパフォーマンスチューニング 〜ISUCONから学ぶ高速化の実践",
-    title: "改訂新版 達人が教えるWebパフォーマンスチューニング 〜ISUCONから学ぶ高速化の実践",
+    title:
+      "改訂新版 達人が教えるWebパフォーマンスチューニング 〜ISUCONから学ぶ高速化の実践",
   },
   {
     href: "https://amzn.to/3r5Go4c",
     image: localSoftwareDesignBookImage,
-    alt: "Software Design 2023/10",
-    title: "Software Design 2023/10",
+    alt: "Software Design 2023年10月号",
+    title: "Software Design 2023年10月号",
   },
   {
     href: "https://amzn.to/2GckB2B",
     image: localPixivBookImage,
-    alt: "pixiv",
-    title: "pixiv",
+    alt: "pixivエンジニアが教えるプログラミング入門",
+    title: "pixivエンジニアが教えるプログラミング入門",
   },
 ];
 ---
@@ -197,6 +192,45 @@ const publications = [
         operations, and the engineering practices behind them.
       </p>
     </header>
+
+    <section class="section section-podcast">
+      <h2>Podcast</h2>
+      <div class="section-body">
+        <a
+          class="podcast-link"
+          href="https://yaoyorozu-oss.henteko07.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span class="podcast-icon" aria-hidden="true">
+            <span class="fa-solid fa-podcast"></span>
+          </span>
+          <span class="podcast-title">八百万のOSS</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section section-publications">
+      <h2>Publications</h2>
+      <div class="section-body">
+        <div class="books">
+          {
+            publications.map((book) => (
+              <a class="book" href={book.href} target="_blank" rel="noreferrer">
+                <Image
+                  src={book.image}
+                  format="avif"
+                  quality="high"
+                  width={220}
+                  alt={book.alt}
+                />
+                <span class="book-title">{book.title}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
 
     <section class="section section-social">
       <h2>Social Media</h2>
@@ -233,27 +267,6 @@ const publications = [
             ))
           }
         </ul>
-      </div>
-    </section>
-
-    <section class="section section-publications">
-      <h2>Publications</h2>
-      <div class="section-body">
-        <div class="books">
-          {
-            publications.map((book) => (
-              <a class="book" href={book.href} target="_blank" rel="noreferrer">
-                <Image
-                  src={book.image}
-                  format="avif"
-                  quality="high"
-                  width={220}
-                  alt={book.alt}
-                />
-              </a>
-            ))
-          }
-        </div>
       </div>
     </section>
 
@@ -373,6 +386,34 @@ const publications = [
     min-width: 0;
     padding: 1.5rem 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .podcast-link {
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.5rem 0;
+  }
+
+  .podcast-link:is(:hover, :focus-visible) .podcast-title {
+    color: var(--accent-strong);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .podcast-icon {
+    flex-shrink: 0;
+    color: var(--text);
+    font-size: 1.75rem;
+  }
+
+  .podcast-title {
+    display: block;
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
   }
 
   .section-social {
@@ -529,34 +570,69 @@ const publications = [
   }
 
   .books {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1rem;
-    align-items: end;
-    justify-content: flex-start;
   }
 
   .book {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    width: 118px;
-    flex: 0 0 118px;
+    flex-direction: column;
+    min-width: 0;
+    gap: 0.75rem;
   }
 
   .book img {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
     height: 174px;
     border-radius: 3px;
     object-fit: contain;
-    object-position: center bottom;
+    object-position: left bottom;
+  }
+
+  .book-title {
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .book:is(:hover, :focus-visible) .book-title {
+    color: var(--accent-strong);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  @media (min-width: 721px) {
+    .section-podcast,
+    .section-publications {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr);
+      column-gap: 2rem;
+      align-items: start;
+    }
+
+    .section-podcast {
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .section-podcast h2,
+    .section-publications h2 {
+      margin-bottom: 0;
+    }
+
+    .section-publications .books {
+      grid-template-columns: repeat(3, minmax(0, 140px));
+    }
   }
 
   @media (max-width: 720px) {
     .page {
       display: block;
-      width: min(100%, calc(100% - 1.25rem));
+      width: calc(100% - 2.5rem);
       padding-top: 2rem;
     }
 
@@ -619,25 +695,25 @@ const publications = [
     }
 
     .books {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: 8.75rem;
-      gap: 0.2rem;
-      overflow-x: auto;
-      padding-bottom: 0.1rem;
-      scroll-snap-type: x proximity;
-      -webkit-overflow-scrolling: touch;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
     }
 
     .book {
-      width: auto;
-      flex: initial;
-      scroll-snap-align: start;
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      align-items: center;
+      gap: 1rem;
+      max-width: 24rem;
     }
 
     .book img {
-      width: 100%;
-      height: 180px;
+      height: 106px;
+      object-position: center;
+    }
+
+    .book-title {
+      font-size: 0.9rem;
     }
   }
 </style>
